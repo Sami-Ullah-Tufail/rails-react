@@ -1,12 +1,22 @@
-class Api::V1::GreetingsController < ApplicationController
-    before_action :set_default_format
+# Controller for managing greetings in the API.
+module Api
+  module V1
+    class GreetingsController < ApplicationController
+      before_action :set_default_format
 
-    def index
+      # GET /api/v1/greetings
+      # Fetches a random greeting from the database.
+      def index
         @greeting = Greeting.order('RANDOM()').first
         render json: { greeting: @greeting&.greeting }
-    end    
+      end
 
-    def set_default_format
-        request.format :json
-    end    
+      private
+
+      # Sets the default response format to JSON.
+      def set_default_format
+        request.format = :json
+      end
+    end
+  end
 end
