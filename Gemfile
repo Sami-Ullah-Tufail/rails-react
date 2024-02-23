@@ -67,6 +67,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+gem 'pg', '~> 1.1'
 gem 'rack-cors'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'pg', '~> 1.1'
